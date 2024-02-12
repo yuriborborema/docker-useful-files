@@ -1,0 +1,18 @@
+version: '3.8'
+volumes:
+  data:
+services:
+  metabase:
+    image: metabase/metabase:v0.46.6.2
+    container_name: metabase_v0.46.6.2
+    ports:
+      - "4321:3000"
+    volumes:
+      - data:/var/lib/metabase
+    environment:
+      - MB_DB_TYPE=mysql
+      - MB_DB_DBNAME=metabase
+      - MB_DB_PORT=3000
+      - MB_DB_USER=root
+      - MB_DB_PASS=root
+      - MB_DB_HOST=localhost
